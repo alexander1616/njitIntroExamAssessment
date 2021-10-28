@@ -1,96 +1,76 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
+//Name
+let yourName = "Alex Chan" 
+document.getElementById('credit').textContent = `Created by ${yourName}`
 
-// First, tell us your name
-let yourName = "Alex Chan" // HINT: Replace this with your own name!
-
-// We'll use these variables to track the counts of each cookie type
+//Variable Count Declaration
 let gb = 0       // Gingerbread
 let cc = 0     // Chocolate Chip
 let sugar = 0  // Sugar Sprinkle
 
-
-// Code to update name display 
-document.getElementById('credit').textContent = `Created by ${yourName}`
-
-// Event listener for clicks on the "+" button for Gingerbread cookies
-//document.getElementById('add-gb').addEventListener('click', function() {
-    // HINT: You can delete this console.log after you no longer need it!
-    //console.log('Gingerbread + button was clicked!')
-
-    // TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
-//})
-
-// TODO: Hook up event listeners for the rest of the buttons
-
-function sumCookies(displayTotal){
+//Sum Function
+function sumCookies(displayTotal)
+{
     let totalCookies = document.getElementById('qty-total')
     totalCookies.innerHTML = displayTotal
 }
-// gingerbreak buttons
 
-let gingCell = document.getElementById('qty-gb')
-
-const gbQuantUp = document.getElementById('add-gb')
-gbQuantUp.addEventListener('click', function(e){
-    //gb = parseInt(gingCell.textContent);
+//Gingerbread Cookie
+let gingCell = document.getElementById('qty-gb') //Gingerbread Cell Reference
+let gbQuantUp = document.getElementById('add-gb') //Gingerbread Plus Button
+gbQuantUp.addEventListener('click', function(e)
+{
     gb++;
     gingCell.textContent = gb;
     sumCookies(`${gb+cc+sugar}`);
-    //console.log(sumCookies)
-    //console.log(gb)
 })
 
-const gbQuantDown = document.getElementById('minus-gb')
-gbQuantDown.addEventListener('click', function(e){
-    //gb = parseInt(gingCell.textContent);
-    if (gb > 0) {
+let gbQuantDown = document.getElementById('minus-gb') //Gingerbread Minus Button
+gbQuantDown.addEventListener('click', function(e)
+{    
+    if (gb > 0) 
+    {
         gb--;
     }
     gingCell.textContent = gb;
     sumCookies(`${gb+cc+sugar}`)
 })
-// chocolate buttons
-let chocCell = document.getElementById('qty-cc')
 
-const ccQuantUp = document.getElementById('add-cc')
-ccQuantUp.addEventListener('click', function(e){
-   // cc = parseInt(chocCell.textContent);
+//Chocolate Cookie
+let chocCell = document.getElementById('qty-cc') //Choc Cell Ref
+let ccQuantUp = document.getElementById('add-cc') //Choc Plus Button
+ccQuantUp.addEventListener('click', function(e)
+{
     cc++;
     chocCell.textContent = cc;
     sumCookies(`${cc+gb+sugar}`);
-    //console.log(sumCookies)
-    //console.log(cc)
 })
 
-const ccQuantDown = document.getElementById('minus-cc')
-ccQuantDown.addEventListener('click', function(e){
-   // cc = parseInt(chocCell.textContent);
-    if (cc > 0) {
+let ccQuantDown = document.getElementById('minus-cc') //Choc Minus Button
+ccQuantDown.addEventListener('click', function(e)
+{
+    if (cc > 0) 
+    {
         cc--;
     }
     chocCell.textContent = cc;
     sumCookies(`${cc+gb+sugar}`)
 })
 
-// sugar buttons
-
-let sugarCell = document.getElementById('qty-sugar')
-
-const sugarQuantUp = document.getElementById('add-sugar')
-sugarQuantUp.addEventListener('click', function(e){
-   // sugar = parseInt(sugarCell.textContent);
+//Sugar Cookie
+let sugarCell = document.getElementById('qty-sugar') //Sugar Cell Ref
+let sugarQuantUp = document.getElementById('add-sugar') //Sugar Plus Button
+sugarQuantUp.addEventListener('click', function(e)
+{
     sugar++;
     sugarCell.textContent = sugar;
     sumCookies(`${cc+gb+sugar}`);
-    //console.log(sumCookies)
-    //console.log(cc)
 })
 
-const sugarQuantDown = document.getElementById('minus-sugar')
-sugarQuantDown.addEventListener('click', function(e){
-    //sugar = parseInt(sugarCell.textContent);
-    if (sugar > 0) {
+let sugarQuantDown = document.getElementById('minus-sugar') //Sugar Minus Button
+sugarQuantDown.addEventListener('click', function(e)
+{
+    if (sugar > 0) 
+    {
         sugar--;
     }
     sugarCell.textContent = sugar;
